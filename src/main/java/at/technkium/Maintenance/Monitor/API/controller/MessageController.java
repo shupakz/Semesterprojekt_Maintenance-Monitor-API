@@ -27,4 +27,10 @@ public class MessageController {
         messageService.setMessage(message);
         return ResponseEntity.ok("ok");
     }
+
+    @PostMapping("/reset")
+    public ResponseEntity<String> resetMessage() {
+        messageService.resetMessage();
+        return ResponseEntity.ok("ok");
+    }
 }
