@@ -4,9 +4,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class MessageService {
-    private String currentMessage = "Everything operates as expected";
 
     public String getCurrentMessage() {
+        String currentMessage = "Everything operates as expected";
         return currentMessage;
     }
 }
