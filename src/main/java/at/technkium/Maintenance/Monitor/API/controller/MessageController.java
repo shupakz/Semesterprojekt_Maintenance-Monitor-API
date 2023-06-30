@@ -2,10 +2,9 @@ package at.technkium.Maintenance.Monitor.API.controller;
 
 import at.technkium.Maintenance.Monitor.API.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/message")
@@ -21,5 +20,11 @@ public class MessageController {
     public ResponseEntity<String> getMessage() {
         String currentMessage = messageService.getCurrentMessage();
         return ResponseEntity.ok(currentMessage);
+    }
+
+    @PostMapping("/set")
+    public ResponseEntity<String> setMessage(@RequestParam("m") String message) {
+        messageService.setMessage(message);
+        return ResponseEntity.ok("ok");
     }
 }
